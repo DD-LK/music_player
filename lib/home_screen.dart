@@ -112,18 +112,19 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 final song = _songs[index];
                 final isSelected = index == _currentSongIndex;
+                final colorScheme = Theme.of(context).colorScheme;
                 return Card(
-                  color: isSelected ? Theme.of(context).primaryColor.withOpacity(0.3) : Colors.transparent,
+                  color: isSelected ? colorScheme.primary.withOpacity(0.3) : Colors.transparent,
                   elevation: 0,
                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: ListTile(
                     title: Text(
                       song.title,
-                      style: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, fontSize: 18),
+                      style: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, fontSize: 18, color: colorScheme.onSurface),
                     ),
                     subtitle: Text(
                       song.artist,
-                      style: TextStyle(fontFamily: 'Roboto', fontSize: 14),
+                      style: TextStyle(fontFamily: 'Roboto', fontSize: 14, color: colorScheme.onSurface.withOpacity(0.8)),
                     ),
                     onTap: () => _playSong(index),
                     leading: song.artwork != null
@@ -142,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildPlayerControls() {
     final song = _songs[_currentSongIndex];
-    final textColor = Theme.of(context).colorScheme.onSurface;
+    final colorScheme = Theme.of(context).colorScheme;
 
     return ClipRRect(
       borderRadius: const BorderRadius.only(
@@ -154,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           decoration: BoxDecoration(
-            color: Theme.of(context).scaffoldBackgroundColor.withOpacity(0.7),
+            color: colorScheme.surface.withOpacity(0.8),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
@@ -170,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(12),
                           child: Image.memory(song.artwork!, width: 64, height: 64, fit: BoxFit.cover),
                         )
-                      : Icon(Icons.music_note, size: 64, color: textColor),
+                      : Icon(Icons.music_note, size: 64, color: colorScheme.onSurface),
                   const SizedBox(width: 16),
                   Expanded(
                     child: Column(
@@ -178,12 +179,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Text(
                           song.title,
-                          style: TextStyle(fontFamily: 'PlaywritePL', fontSize: 22, fontWeight: FontWeight.bold, color: textColor),
+                          style: TextStyle(fontFamily: 'PlaywritePL', fontSize: 22, fontWeight: FontWeight.bold, color: colorScheme.onSurface),
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
                           song.artist,
-                          style: TextStyle(fontFamily: 'Roboto', fontSize: 16, color: textColor.withOpacity(0.8)),
+                          style: TextStyle(fontFamily: 'Roboto', fontSize: 16, color: colorScheme.onSurface.withOpacity(0.8)),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
@@ -206,8 +207,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(_formatDuration(_position), style: TextStyle(fontFamily: 'VT323', fontSize: 16, color: textColor)),
-                    Text(_formatDuration(_duration), style: TextStyle(fontFamily: 'VT323', fontSize: 16, color: textColor)),
+                    Text(_formatDuration(_position), style: TextStyle(fontFamily: 'VT323', fontSize: 16, color: colorScheme.onSurface)),
+                    Text(_formatDuration(_duration), style: TextStyle(fontFamily: 'VT323', fontSize: 16, color: colorScheme.onSurface)),
                   ],
                 ),
               ),
@@ -215,13 +216,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   IconButton(
-                    icon: Icon(Icons.skip_previous, color: textColor, size: 36),
+                    icon: Icon(Icons.skip_previous, color: colorScheme.onSurface, size: 36),
                     onPressed: () => _playSong(_currentSongIndex - 1),
                   ),
                   IconButton(
                     icon: Icon(
                       _playerState == PlayerState.playing ? Icons.pause_circle_filled : Icons.play_circle_filled,
-                      color: textColor,
+                      color: colorScheme.primary,
                       size: 72,
                     ),
                     onPressed: () {
@@ -233,11 +234,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   IconButton(
-                    icon: Icon(Icons.skip_next, color: textColor, size: 36),
+                    icon: Icon(Icons.skip_next, color: colorScheme.onSurface, size: 36),
                     onPressed: () => _playSong(_currentSongIndex + 1),
                   ),
                   IconButton(
-                    icon: Icon(Icons.stop_circle_outlined, color: textColor, size: 36),
+                    icon: Icon(Icons.stop_circle_outlined, color: colorScheme.onSurface, size: 36),
                     onPressed: _stopSong,
                   ),
                 ],

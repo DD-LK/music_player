@@ -11,12 +11,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = TextTheme(
-      displayLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
-      displayMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
-      displaySmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
-      headlineLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
-      headlineMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
-      headlineSmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+      displayLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      displayMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      displaySmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      headlineLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      headlineMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      headlineSmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
       titleLarge: TextStyle(fontFamily: 'Roboto', fontWeight: FontWeight.bold),
       bodyLarge: TextStyle(fontFamily: 'Roboto'),
       bodyMedium: TextStyle(fontFamily: 'Roboto'),
@@ -27,9 +27,11 @@ class MyApp extends StatelessWidget {
       title: 'Music Player',
       themeMode: ThemeMode.system,
       theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.grey.shade100,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.blue,
+          brightness: Brightness.light,
+        ),
+        scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Roboto',
         textTheme: textTheme,
         appBarTheme: const AppBarTheme(
@@ -40,13 +42,15 @@ class MyApp extends StatelessWidget {
         ),
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.black,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.deepPurple,
+          brightness: Brightness.dark,
+        ),
+        scaffoldBackgroundColor: const Color(0xFF121212),
         fontFamily: 'Roboto',
         textTheme: textTheme.apply(
-          bodyColor: Colors.white.withOpacity(0.8),
-          displayColor: Colors.white,
+          bodyColor: Colors.white,
+          displayColor: Colors.deepPurple,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
