@@ -10,7 +10,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = TextTheme(
+      displayLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+      displayMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+      displaySmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+      headlineLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+      headlineMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+      headlineSmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+      titleLarge: TextStyle(fontFamily: 'Roboto', fontWeight: FontWeight.bold),
+      bodyLarge: TextStyle(fontFamily: 'Roboto'),
+      bodyMedium: TextStyle(fontFamily: 'Roboto'),
+      bodySmall: TextStyle(fontFamily: 'Roboto'),
+    );
 
     return MaterialApp(
       title: 'Music Player',
@@ -19,27 +30,29 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.grey.shade100,
+        fontFamily: 'Roboto',
         textTheme: textTheme,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
-          titleTextStyle: TextStyle(fontFamily: 'Poppins', color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+          titleTextStyle: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: Colors.black,
-        textTheme: textTheme.copyWith(
-          bodyMedium: textTheme.bodyMedium?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
-          bodySmall: textTheme.bodySmall?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
+        fontFamily: 'Roboto',
+        textTheme: textTheme.apply(
+          bodyColor: Colors.white.withOpacity(0.8),
+          displayColor: Colors.white,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.white),
-          titleTextStyle: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
       home: const HomeScreen(),
