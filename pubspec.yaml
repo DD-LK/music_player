@@ -61,4 +61,27 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto-v48-latin-regular.ttf
+        - asset: assets/fonts/roboto-v48-latin-italic.ttf
+          style: italic
+        - asset: assets/fonts/roboto-v48-latin-700.ttf
+          weight: 700
+        - asset: assets/fonts/roboto-v48-latin-700italic.ttf
+          weight: 700
+          style: italic
+    - family: PlaywritePL
+      fonts:
+        - asset: assets/fonts/playwrite-pl-v9-latin-100.ttf
+          weight: 100
+        - asset: assets/fonts/playwrite-pl-v9-latin-200.ttf
+          weight: 200
+        - asset: assets/fonts/playwrite-pl-v9-latin-300.ttf
+          weight: 300
+        - asset: assets/fonts/playwrite-pl-v9-latin-regular.ttf
+          weight: 400
+    - family: VT323
+      fonts:
+        - asset: assets/fonts/vt323-v17-latin_latin-ext-regular.ttf

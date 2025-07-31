@@ -11,36 +11,53 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = TextTheme(
+      displayLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      displayMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      displaySmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      headlineLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      headlineMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      headlineSmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
+      titleLarge: TextStyle(fontFamily: 'Roboto', fontWeight: FontWeight.bold),
+      bodyLarge: TextStyle(fontFamily: 'Roboto'),
+      bodyMedium: TextStyle(fontFamily: 'Roboto'),
+      bodySmall: TextStyle(fontFamily: 'Roboto'),
+    );
 
     return MaterialApp(
       title: 'Music Player',
       themeMode: ThemeMode.system,
       theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.grey.shade100,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.blue,
+          brightness: Brightness.light,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Roboto',
         textTheme: textTheme,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.black),
-          titleTextStyle: TextStyle(fontFamily: 'Poppins', color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
+          titleTextStyle: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
       darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.black,
-        textTheme: textTheme.copyWith(
-          bodyMedium: textTheme.bodyMedium?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
-          bodySmall: textTheme.bodySmall?.copyWith(color: Colors.white.withValues(alpha: 0.8)),
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.deepPurple,
+          brightness: Brightness.dark,
+        ),
+        scaffoldBackgroundColor: const Color(0xFF121212),
+        fontFamily: 'Roboto',
+        textTheme: textTheme.apply(
+          bodyColor: Colors.white,
+          displayColor: Colors.deepPurple,
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
           iconTheme: IconThemeData(color: Colors.white),
-          titleTextStyle: TextStyle(fontFamily: 'Poppins', color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
       home: const HomeScreen(),
