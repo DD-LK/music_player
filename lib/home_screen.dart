@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 final colorScheme = Theme.of(context).colorScheme;
                 final textTheme = Theme.of(context).textTheme;
                 return Card(
-                  color: isSelected ? colorScheme.primary.withOpacity(0.3) : Colors.transparent,
+                  color: isSelected ? colorScheme.primary.withAlpha(77) : Colors.transparent,
                   elevation: 0,
                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: ListTile(
@@ -156,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           decoration: BoxDecoration(
-            color: colorScheme.surfaceVariant.withOpacity(0.8),
+            color: colorScheme.surfaceVariant.withAlpha(204),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
