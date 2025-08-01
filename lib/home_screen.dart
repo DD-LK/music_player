@@ -114,7 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 final isSelected = index == _currentSongIndex;
                 final colorScheme = Theme.of(context).colorScheme;
                 return Card(
-                  color: isSelected ? colorScheme.primary.withOpacity(0.3) : Colors.transparent,
+                  color: isSelected ? colorScheme.primary.withAlpha(77) : Colors.transparent,
                   elevation: 0,
                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                   child: ListTile(
@@ -124,7 +124,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     subtitle: Text(
                       song.artist,
-                      style: TextStyle(fontFamily: 'Roboto', fontSize: 14, color: colorScheme.onSurface.withOpacity(0.8)),
+                      style: TextStyle(fontFamily: 'Roboto', fontSize: 14, color: colorScheme.onSurface.withAlpha(204)),
                     ),
                     onTap: () => _playSong(index),
                     leading: song.artwork != null
@@ -155,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           decoration: BoxDecoration(
-            color: colorScheme.surface.withOpacity(0.8),
+            color: colorScheme.surface.withAlpha(204),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
@@ -184,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         Text(
                           song.artist,
-                          style: TextStyle(fontFamily: 'Roboto', fontSize: 16, color: colorScheme.onSurface.withOpacity(0.8)),
+                          style: TextStyle(fontFamily: 'Roboto', fontSize: 16, color: colorScheme.onSurface.withAlpha(204)),
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
