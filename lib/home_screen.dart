@@ -100,8 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Music Player', style: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold)),
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor.withAlpha(180),
+        title: const Text('Music Player'),
       ),
       extendBodyBehindAppBar: true,
       body: _isLoading
@@ -113,6 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 final song = _songs[index];
                 final isSelected = index == _currentSongIndex;
                 final colorScheme = Theme.of(context).colorScheme;
+                final textTheme = Theme.of(context).textTheme;
                 return Card(
                   color: isSelected ? colorScheme.primary.withOpacity(0.3) : Colors.transparent,
                   elevation: 0,
@@ -120,11 +120,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListTile(
                     title: Text(
                       song.title,
-                      style: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, fontSize: 18, color: colorScheme.onSurface),
+                      style: textTheme.titleMedium,
                     ),
                     subtitle: Text(
                       song.artist,
-                      style: TextStyle(fontFamily: 'Roboto', fontSize: 14, color: colorScheme.onSurface.withOpacity(0.8)),
+                      style: textTheme.bodySmall,
                     ),
                     onTap: () => _playSong(index),
                     leading: song.artwork != null
@@ -144,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildPlayerControls() {
     final song = _songs[_currentSongIndex];
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
 
     return ClipRRect(
       borderRadius: const BorderRadius.only(
@@ -155,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
           decoration: BoxDecoration(
-            color: colorScheme.surface.withOpacity(0.8),
+            color: colorScheme.surfaceVariant.withOpacity(0.8),
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(30),
               topRight: Radius.circular(30),
@@ -179,12 +180,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Text(
                           song.title,
-                          style: TextStyle(fontFamily: 'PlaywritePL', fontSize: 22, fontWeight: FontWeight.bold, color: colorScheme.onSurface),
+                          style: textTheme.titleLarge,
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
                           song.artist,
-                          style: TextStyle(fontFamily: 'Roboto', fontSize: 16, color: colorScheme.onSurface.withOpacity(0.8)),
+                          style: textTheme.bodyMedium,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
@@ -207,8 +208,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(_formatDuration(_position), style: TextStyle(fontFamily: 'VT323', fontSize: 16, color: colorScheme.onSurface)),
-                    Text(_formatDuration(_duration), style: TextStyle(fontFamily: 'VT323', fontSize: 16, color: colorScheme.onSurface)),
+                    Text(_formatDuration(_position), style: textTheme.bodySmall?.copyWith(fontFamily: 'VT323')),
+                    Text(_formatDuration(_duration), style: textTheme.bodySmall?.copyWith(fontFamily: 'VT323')),
                   ],
                 ),
               ),

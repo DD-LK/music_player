@@ -10,53 +10,47 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = TextTheme(
-      displayLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
-      displayMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
-      displaySmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
-      headlineLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
-      headlineMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
-      headlineSmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold, color: Colors.blue),
-      titleLarge: TextStyle(fontFamily: 'Roboto', fontWeight: FontWeight.bold),
-      bodyLarge: TextStyle(fontFamily: 'Roboto'),
-      bodyMedium: TextStyle(fontFamily: 'Roboto'),
-      bodySmall: TextStyle(fontFamily: 'Roboto'),
-    );
-
     return MaterialApp(
       title: 'Music Player',
       themeMode: ThemeMode.system,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.blue,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
           brightness: Brightness.light,
         ),
-        scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Roboto',
-        textTheme: textTheme,
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          displayMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          displaySmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          headlineLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          headlineMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          headlineSmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+        ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: Colors.black),
-          titleTextStyle: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
       darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.deepPurple,
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
           brightness: Brightness.dark,
         ),
-        scaffoldBackgroundColor: const Color(0xFF121212),
         fontFamily: 'Roboto',
-        textTheme: textTheme.apply(
-          bodyColor: Colors.white,
-          displayColor: Colors.deepPurple,
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          displayMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          displaySmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          headlineLarge: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          headlineMedium: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
+          headlineSmall: TextStyle(fontFamily: 'PlaywritePL', fontWeight: FontWeight.bold),
         ),
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          iconTheme: IconThemeData(color: Colors.white),
-          titleTextStyle: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
       home: const HomeScreen(),
